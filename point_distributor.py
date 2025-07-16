@@ -12,14 +12,15 @@ from sklearn.cluster import KMeans
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from sdf.mesh import bounding_box, box
+from sdf.core import _estimate_bounds
+from sdf import bounding_box, box, rounded_box
 
 
 class PointDistributer():
 
     def __init__(self, cost) -> None:
         self.cost = cost
-        self.bounds_min, self.bounds_max = bounding_box(self.cost)
+        self.bounds_min, self.bounds_max = _estimate_bounds(self.cost)
 
 
     def get_cost_sdf(self, x):
