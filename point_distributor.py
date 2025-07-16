@@ -13,7 +13,7 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from sdf.core import _estimate_bounds
-from sdf import bounding_box, box, rounded_box
+from sdf.mesh import bounding_box, box, rounded_box
 
 
 class PointDistributer():
