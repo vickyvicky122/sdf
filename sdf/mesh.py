@@ -63,7 +63,7 @@ class Mesh:
 
     @sdf3
     def sdf(self, voxel_size, half_width=None):
-        import pyopenvdb as vdb
+        import openvdb as vdb
 
         a, b = self.bounding_box
         estimator = box(a=a, b=b)
@@ -96,8 +96,8 @@ class Mesh:
         interpolator = interpolate.RegularGridInterpolator(
             (X, Y, Z), A, bounds_error=False, fill_value=grid.background)
 
-        # num_voxels = size[0] * size[1] * size[2]
-        # print('mesh voxels = %d' % num_voxels)
+        num_voxels = size[0] * size[1] * size[2]
+        print('mesh voxels = %d' % num_voxels)
 
         def f(p):
             e = estimator(p)
